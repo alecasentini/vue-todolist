@@ -19,9 +19,14 @@
         <h1 class="text-center">To Do list</h1>
 
         <div class="d-flex align-items-center justify-content-center">
-            <input type="text" name="" id="">
-            <button class="btn btn-primary ms-2">Aggiungi</button>
+            <input type="text" v-model="testoInput" @KeyUp.enter="creaTodo">
+            <button class="btn btn-primary ms-2" @click="creaTodo">Aggiungi</button>
         </div>
+
+        <!-- alert -->
+        <p v-if=" error "  class="w-50 alert alert-danger text-center mt-3" role="alert">
+            scrivi qualcosa nel campo input e superiore ai 5 caratteri
+        </p>
 
         <!-- container -->
         <div class="container border rounded mt-5">
@@ -30,8 +35,11 @@
             :key="index"
             class="border-bottom d-flex justify-content-between align-items-center p-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <input class="form-check-input" type="checkbox"
+                        :checked="elem.done" 
+                        @change="toggleDone(index)" >
+                    <label class="form-check-label"
+                        :class="{ 'done': elem.done }" >
                         {{elem.text}}
                     </label>
                 </div>
