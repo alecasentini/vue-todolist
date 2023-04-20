@@ -16,7 +16,7 @@
 
     <div id="app">
 
-        <h1 class="text-center">To Do list</h1>
+        <h1 class="text-center">To-Do List</h1>
 
         <div class="d-flex align-items-center justify-content-center">
             <input type="text" v-model="testoInput" @KeyUp.enter="creaTodo">
@@ -43,7 +43,12 @@
                         {{elem.text}}
                     </label>
                 </div>
-                <i class="fa-solid fa-xmark"></i>
+                <i class="fa-solid fa-xmark" @click="cancellareLaTodo(index)"></i>
+            </div>
+
+            <!-- Comprare il div quando non ci sono lementi nell'array, grazie al v-if -->
+            <div v-if="todos.length == 0" class="d-flex justify-content-center align-items-center p-3">
+                <p class="m-0">Non ci sono elementi nella to-do list 😎</p>
             </div>
 
         </div>

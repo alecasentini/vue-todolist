@@ -15,3 +15,7 @@
 .done {
     text-decoration: line-through;
 }
+
+.fa-xmark{
+    cursor: pointer;
+}
