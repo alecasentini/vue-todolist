@@ -7,18 +7,22 @@ createApp({
         todos: [
             {
                 text: 'Fare i compiti',
-                done: false
+                done: false,
+                editing: false
             },
             {
                 text: 'Fare la spesa',
-                done: true
+                done: true,
+                editing: false
             },
             {
                 text: 'Fare il bucato',
-                done: false
+                done: false,
+                editing: false
             }
         ],
         error: false,
+        editedText: '',
       
     }
   },
@@ -40,7 +44,16 @@ createApp({
     
     toggleDone(index) {
         this.todos[index].done = !this.todos[index].done;
-    }
+    },
+
+    startEditing(index) {
+        this.todos[index].editing = true;
+        this.editedText = this.todos[index].text;
+    },
+    finishEditing(index) {
+        this.todos[index].text = this.editedText;
+        this.todos[index].editing = false;
+    },
 
   }
 }).mount('#app')
