@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Kalam', cursive;
+}
+
+body{
+    background-color: #212529!important;
+}
+
+h1{
+    font-weight: bold;
 }
 
 .container div:last-child{
